@@ -1,6 +1,19 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import {connect} from 'react-redux'
 
 class Dashboard extends Component {
+    constructor(){
+        super()
+        this.state = {
+            posts: []
+        }
+    }
+
+    componentDidMount(){
+        axios.get(`/api/posts/${this.props.user_id}`)
+        .then(res =>{ this.setState({ posts: res.data })})
+    }
     render(){
         return(
             <div className="Dashboard">
@@ -10,4 +23,8 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard;
+const mapStateProps = (reduxState) => {
+    return reduxState
+}
+
+export default connect(mapStateProps)(Dashboard);

@@ -9,8 +9,8 @@ import Profile from './Components/Profile'
 export default (
     <Switch>
         <Route component={ Landing } exact path='/'/>
-        <Route component={ Dashboard } path='/dashboard'/>
-        <Route component={ Profile } path='/profile/:id' />
+        <Route component={ Dashboard } path='/dash'/>
+        <Route component={ Profile } path='/profile' />
         <Route component={ Register } path='/register'/>
     </Switch>
 )
